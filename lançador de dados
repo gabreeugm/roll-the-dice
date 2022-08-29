@@ -1,0 +1,88 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace lançador_de_dados
+{
+    internal class Program
+    {
+        /* Autor: Gabriel Gama
+         * Problema: Escolher qual dado você quer jogar e mostrar resultado
+         * Data: 28/08/2022
+         */
+        static void Main(string[] args)
+        {
+            //variáveis
+            int numero_aleatorio = 0;
+            string resposta = "",
+                   pergunta = "SIM";
+            Random random = new Random();
+
+            //título
+            Console.WriteLine("##### Lançador de dados #####");
+            
+            //condição enquanto
+            while (pergunta == "SIM" || pergunta == "S")
+            { 
+
+                Console.WriteLine("Escolha qual dado deseja lançar:");
+                Console.WriteLine("D100 --- D20 --- D12 --- D8 --- D6 --- D4");
+            
+                //entrada
+                resposta = Console.ReadLine();
+
+                //escolha
+                switch (resposta)
+                {
+                    case "D100":
+                    case "d100":
+                    case "100":
+                    numero_aleatorio = random.Next(1,101);
+                    Console.WriteLine("\nVocê jogou 1D100 e tirou " + numero_aleatorio);
+                        break;
+                    case "D20":
+                    case "d20":
+                    case "20":
+                    numero_aleatorio = random.Next(1, 21);
+                    Console.WriteLine("\nVocê jogou 1D20 e tirou " + numero_aleatorio);
+                        break;
+                    case "D12":
+                    case "d12":
+                    case "12":
+                        numero_aleatorio = random.Next(1, 13);
+                        Console.WriteLine("\nVocê jogou 1D12 e tirou " + numero_aleatorio);
+                        break;
+                    case "D8":
+                    case "d8":
+                    case "8":
+                        numero_aleatorio = random.Next(1, 9);
+                        Console.WriteLine("\nVocê jogou 1D8 e tirou " + numero_aleatorio);
+                        break;
+                    case "D6":
+                    case "d6":
+                    case "6":
+                        numero_aleatorio = random.Next(1, 7);
+                        Console.WriteLine("\nVocê jogou 1D6 e tirou " + numero_aleatorio);
+                        break;
+                    case "D4":
+                    case "d4":
+                    case "4":
+                        numero_aleatorio = random.Next(1, 5);
+                        Console.WriteLine("\nVocê jogou 1D4 e tirou " + numero_aleatorio);
+                        break;
+                }
+
+                //permite continuar na condição
+                Console.WriteLine("Deseja jogar novamente?");
+                pergunta = Console.ReadLine().ToUpper();
+
+                //limpa o console
+                Console.Clear();
+            }
+            //processa o último item antes de fechar o programa
+            Console.ReadKey();
+        }
+    }
+}
